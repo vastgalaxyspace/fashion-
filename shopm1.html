@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Fashion Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#"><img src="img/logo.jpg" class="logo" alt="Sustainable Fashion Logo"></a>
+        <nav>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forhim.html">For Him</a></li>
+                <li><a href="forher.html">For Her</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="#" id="close"><i class="far fa-times"></i></a></li>
+            </ul>
+        </nav>
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-plus add-to-cart"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </header>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="product/a1.png" alt="Product Image" id="MainImg">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="product/a1.png" alt="Product Image" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/a1-2.png" alt="Product Image" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/a1-3.png" alt="Product Image" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/a1-4.png" alt="Product Image" class="small-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / T-Shirt</h6>
+            <h4>Mens Fashion T-Shirt</h4>
+            <div class="card--title"><h4>BLACK MANDARIN SHIRT</h4></div>
+            <div class="price">Rs. 2,299</div>
+            <select>
+                <option>Select Size</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1">
+            <button class="add-to-cart">Add to Cart</button>
+            <h4>Product Details</h4>
+            <span>NICE AND EASY. MADE WITH ORGANIC COTTON AND TRIMMED WITH COCONUT SHELL BUTTONS.</span>
+            <span> SUSTAINABLE, CASUAL MEN'S SHIRT INDEED.</span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>New Collection</p>
+        <div class="pro-container">
+            <!-- Product items here -->
+        </div>
+    </section>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="cart-menu">
+            <h3>My Cart</h3>
+            <div class="cart-items">Test 1</div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="total-amount">
+                <h5>Total</h5>
+                <div class="cart-total">Rs. 0</div>
+            </div>
+            <button class="checkout-btn">Check Out</button>
+        </div>
+    </div>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newsletter-text">
+            <h4>Sign up for Newsletters</h4>
+            <p>Get Email updates about our latest shop and Offers</p>
+        </div>
+        <div class="newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </section>
+    
+    <footer class="section-p1">
+        <!-- Footer content here -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('click', function (event) {
+                if (event.target.classList.contains('add-to-cart')) {
+                    var item = {
+                        name: "Mens Fashion T-Shirt",
+                        price: 2299.00 // Example price
+                    };
+                    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    cartItems.push(item);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    alert('Item added to cart!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
