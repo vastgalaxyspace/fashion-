@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Fashion Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #ff5e00;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --white: #fff;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ======= HEADER ======= */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header .logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+#navbar {
+    display: flex;
+    gap: 20px;
+}
+
+#navbar li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: var(--primary-color);
+}
+
+/* Mobile Menu */
+#mobile {
+    display: none;
+}
+
+/* ======= HERO BANNER ======= */
+#banner {
+    text-align: center;
+    background: url('img/banner.jpg') center/cover no-repeat;
+    padding: 50px 20px;
+    color: var(--white);
+}
+
+#banner h4 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#banner h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+#banner h4, #banner h2 {
+    color: black !important; /* Ensures the text appears black */
+}
+
+/* ======= PRODUCT SECTION ======= */
+#product1 {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.pro-container2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.Men {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.Men:hover {
+    transform: translateY(-10px);
+}
+
+.Men img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.des {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.des span {
+    font-size: 12px;
+    color: #777;
+}
+
+.des h5 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Star {
+    color: #ffa500;
+}
+
+.Men h4 {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Shopping Cart Icon */
+.cart {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+/* ======= PAGINATION ======= */
+#pagination {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#pagination a {
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 5px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+#pagination a:hover {
+    background: #d04c00;
+}
+
+/* ======= NEWSLETTER SECTION ======= */
+#newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.newstext h4 {
+    font-size: 24px;
+}
+
+.newstext p {
+    font-size: 16px;
+}
+
+.form {
+    display: flex;
+}
+
+.form input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.form button {
+    background: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.form button:hover {
+    background: #ddd;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+    #header {
+        padding: 10px 20px;
+    }
+
+    #navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: var(--white);
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbar li {
+        margin: 10px 0;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .pro-container2 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    #newsletter {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form input {
+        width: 70%;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"><img src="img/logo.jpg" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a class="active" href="forhim.html">For Him</a></li>
+                <li><a href="forher">For Her</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/login">Admin Login</a></li>
+
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Services</h4>
+        <h2>New Men's Fashion</h2>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Men's Collection</h2>
+        <div class="pro-container2">
+            <% products.forEach(function(product) { %>
+                <div class="Men" onclick="window.location.href='<%= product.link %>';">
+                    <img src="<%= product.image %>">
+                    <div class="des">
+                        <span>ORGANIC + FAIR-TRADE</span>
+                        <h5><%= product.name %></h5>
+                        <div class="Star">
+                            <% for(let i = 0; i < 5; i++) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                        </div>
+                        <h4>Rs. <%= product.price %></h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">>></a>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign up for Newsletters</h4>
+            <p>Get email updates about our latest shop and offers.</p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+</body>
+
+</html>

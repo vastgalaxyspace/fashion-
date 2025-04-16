@@ -1,11 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
+const app = express();
+app.use(express.static('public')); // assuming index.html is inside /public
+
+
+app.use(session({
+    secret: 'your-secret-key', // Replace with a secure secret in production
+    resave: false,
+    saveUninitialized: false,
+}));
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('./models/User');  // Import the User model
 
-const app = express();
+
 const PORT = 3000;
 
 // Set EJS as the view engine
@@ -17,6 +28,7 @@ app.use(bodyParser.json());
 
 // Serve static files (CSS, JS, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/your-database', {
@@ -47,12 +59,32 @@ app.post('/register', async (req, res) => {
     
     try {
         await newUser.save();
+        console.log(    "User registered successfully:", newUser);
         res.redirect('/login');  // Redirect to login page after successful registration
     } catch (err) {
         console.error('Error saving user:', err);
         res.render('register', { error: 'Error occurred while registering.' });
     }
 });
+app.get('/forhim', (req, res) => {
+    const products = [
+        {
+            link: '/product1',
+            image: '/images/product1.jpg',
+            name: 'T-Shirt',
+            price: '$20'
+        },
+        {
+            link: '/product2',
+            image: '/images/product2.jpg',
+            name: 'Jeans',
+            price: '$40'
+        }
+    ];
+
+    res.render('forhim', { products });
+});
+
 
 // Route to render the login page
 app.get('/login', (req, res) => {
@@ -61,23 +93,32 @@ app.get('/login', (req, res) => {
 
 // POST route to handle login form submission
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
 
-    // Find user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-        return res.render('login', { error: 'No user found with that email' });
+        if (!user) {
+            return res.render('login', { error: 'No user found with that email' });
+        }
+
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.render('login', { error: 'Incorrect password' });
+        }
+
+        // Store user session
+        req.session.user = { id: user._id, username: user.username };
+
+        console.log("Login successful! Redirecting to home...");
+        res.redirect(`/?username=${encodeURIComponent(user.username)}`);
+        // res.redirect("/");
+
+    } catch (err) {
+        console.error("Login error:", err);
+        res.render('login', { error: 'An error occurred, please try again.' });
     }
-
-    // Compare the entered password with the stored password
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-        return res.render('login', { error: 'Incorrect password' });
-    }
-
-    // If successful login, redirect to the home page
-    res.redirect('file:///C:/Users/91986/OneDrive/Desktop/HARSHAD/sustainable%20fashion%20website/sales.html');  // Redirect to the root route
 });
+
 
 // Route to render the home page
 app.get('/', (req, res) => {
@@ -87,4 +128,41 @@ app.get('/', (req, res) => {
 // Start server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+});
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+app.get('/forher', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'forher.html'));
+});
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'cart.html'));
+});
+app.get('/forhim', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'forhim.html'));
+});
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'contact.html'));
+});
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'about.html'));
+}   );
+app.get('/sales', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'sales.html'));
+});
+app.get('/purchase', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'purchase.html'));
+});
+app.get('/order-history', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'order-history.html'));
+});
+app.get('/shop', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'shop.html'));
+});
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'admin.html'));
+});
+
+app.get('/profile', (req, res) => { 
+    res.render('profile');
 });
