@@ -162,7 +162,15 @@ app.get('/shop', (req, res) => {
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'admin.html'));
 });
-
+app.get('/shopm1', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'shopm1.html'));
+});
+app.get('/shopm3', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'shopm3.html'));
+});
+app.get('shop3', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'shop3.html'));
+});
 app.get('/profile', (req, res) => { 
     res.render('profile');
 });
