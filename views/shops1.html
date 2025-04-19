@@ -6,12 +6,170 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sustainable Fashion Website</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Nunito', sans-serif;
+            }
+        
+            body {
+                background-color: #fff;
+                color: #333;
+            }
+        
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 50px;
+                background-color: white;
+            }
+        
+            .logo {
+                width: 120px;
+            }
+        
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 25px;
+            }
+        
+            nav ul li a {
+                text-decoration: none;
+                font-weight: 600;
+                color: #00e6f6;
+                font-size: 18px;
+            }
+        
+            #prodetails {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 50px;
+                gap: 40px;
+            }
+        
+            .single-pro-image {
+                flex: 1;
+            }
+        
+            .single-pro-image img {
+                width: 100%;
+                max-width: 500px;
+                border-radius: 10px;
+            }
+        
+            .small-img-group {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+            }
+        
+            .small-img-col img {
+                width: 100px;
+                height: auto;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        
+            .single-pro-details {
+                flex: 1;
+                max-width: 500px;
+            }
+        
+            .single-pro-details h6 {
+                font-weight: 300;
+                color: gray;
+                margin-bottom: 10px;
+            }
+        
+            .single-pro-details h4 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+        
+            .price {
+                font-size: 24px;
+                color: #000;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+        
+            select, input[type="number"] {
+                padding: 10px;
+                margin-right: 10px;
+                margin-top: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+        
+            .add-to-cart {
+                padding: 10px 20px;
+                background-color: red;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        
+            .add-to-cart:hover {
+                background-color: darkred;
+            }
+        
+            .single-pro-details span {
+                display: block;
+                margin-top: 10px;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+        
+            #product1 {
+                padding: 50px;
+                text-align: center;
+            }
+        
+            #product1 h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+        
+            .newsletter-form input {
+                padding: 10px;
+                border-radius: 5px;
+                width: 250px;
+                border: 1px solid #ccc;
+            }
+        
+            .signup-btn {
+                padding: 10px 15px;
+                background-color: black;
+                color: white;
+                border: none;
+                margin-left: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        
+            @media (max-width: 768px) {
+                #prodetails {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+                .single-pro-image img,
+                .single-pro-details {
+                    max-width: 100%;
+                }
+            }
+        </style>
+        <style>
         @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
@@ -920,322 +1078,222 @@ footer a{
     </head>
 
     <body>
-
         <section id="header">
-            <a href="#"><img src="imag/logo.jpg" class="logo" alt=""></a>
-    
-            <div>
-                <ul id="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a class="active" href="forhim.html">For Him</a></li>
-                    <li><a href="forher.html">For Her</a></li>
-                    <li><a href="sales.html">Sales</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <!-- Added the Sign Up option -->
-                    <li><a href="login.html">Login</a></li>
-                    <a href="#" id="close"><i class="far fa-times"></i></a>
-                </ul>
-            </div>
-            <div id="mobile">
-                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                <i id="bar" class="fas fa-outdent"></i>
-            </div>
-        </section>
-    <section id="banner" class="section-m1">
-        <h4>Services</h4>
-        <h2>New Mens Fashion</h2>
+            <a href="#" ><img src="img/logo.jpg" class="logo" alt=""></a>
         
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forhim.html">For Him</a></li>
+                <li><a href="forher.html">For Her</a></li>
+                <li><a class="active" href="sales.html">Sales</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
     </section>
-    <section id="product1" class="section-p1">
-            <h2>Mens</h2>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="product/c1.png" width="100% " id="MainImg">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="product/c1.png" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/c1-2.png" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/c1-3.png" width="100%" class="small-img">
+                </div>
+                <div class="small-img-col">
+                    <img src="product/c1-2.png" width="100%" class="small-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / T-Shirt</h6>
+            <h4>New Fashion Sales</h4>
+            <h4>BLOOM GIRLFRIEND SHIRT</h4>
+            <h4><s>Rs. 3,299</s></h4>
+            <h3> Rs. 1,499 <span>Sale</span></h3>
             
-            <div class="pro-container2">
-                    <div class="Men" onclick="window.location.href='shopm1.html';">
-                        <img src="imag/a1.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <div class="card--title">BLACK MANDARIN SHIRT</div>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="price">Rs. 2,999</div>
-                        </div>
-                        <a href="#"><i class=" fa-solid fa-plus add-to-cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm2.html';">
-                        <img src="imag/a2.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>MOSS EVERYDAY SHIRT</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 3,499</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm3.html';">
-                        <img src="imag/a3.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>Racerback Tank</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,299</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm4.html';">
-                        <img src="imag/a4.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>AZUL GOLD HALF-SLEEVE SHIRT</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 3,499</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm5.html';">
-                        <img src="imag/a5.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>DENIM EVERYDAY SHIRT</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 3,499</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm6.html';">
-                        <img src="imag/a6.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>VANILLA POCKET JUMPER</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,399</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm7.html';">
-                        <img src="imag/a7.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>GOAN CLASSIC TEE</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,399</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm8.html';"> 
-                        <img src="imag/a8.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>SUNNY CLASSIC TEE</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,399</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm9.html';"> 
-                        <img src="imag/a9-2.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>SLUMBER PYJAMAS</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,699</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm10.html';"> 
-                        <img src="imag/a10.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>SLUMBER Shirt</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,599</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm11.html';"> 
-                        <img src="imag/a11.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>AMP CLASSIC TEE</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,499</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-                    <div class="Men" onclick="window.location.href='shopm12.html';"> 
-                        <img src="imag/a12.png">
-                        <div class="des">
-                            <span>ORGANIC + FIAR-TRADE</span>
-                            <h5>INDIGO HALF-SLEEVE SHIRT</h5>
-                            <div class="Star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Rs. 2,999</h4>
-                        </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                    </div>
-
-
-</div>
-<!-- cart sidebar section-->
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-close">
-        <i class=" fa-solid fa-close"></i>
-    </div>
-        <div class="cart-menu">
-            <h3>My Cart</h3>
-            <div class="cart-tems">test 1</div>
+            <select>
+                <option>Select Size</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1">
+            <button class="normal">Add to Cart</button>
+            <h4>Product Details</h4>
+            <span>THANKS TO JAMMIES EXACTLY LIKE THESE: CUT FROM SOFTEST ORGANIC COTTON. YOUR SWEATPANTS NEVER STOOD A CHANCE.</span>
         </div>
+    </section>
 
-        <div class="sidebar--footer">
-            <div class="total--amount">
-                <h5>Total</h5>
-                <div class="cart-total">Rs. 0</div>
+    <section id="product1" class="section-p1">
+        <h2>Featured Produts</h2>
+        <p>New Collection</p>
+        <div class="pro-container">
+            
+            <div class="pro-container">
+                <div class="girls">
+                    <img src="product/f8.jpg">
+                    <div class="des">
+                        <span>ORGANIC + FIAR-TRADE</span>
+                        <h5>Coconut Milk Racerback Tank</h5>
+                        <div class="Star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>400Rs</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="girls">
+                    <img src="product/f9.png">
+                    <div class="des">
+                        <span>ORGANIC + FIAR-TRADE</span>
+                        <h5>Coconut Milk Racerback Tank</h5>
+                        <div class="Star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>400Rs</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="girls">
+                    <img src="product/f10.png">
+                    <div class="des">
+                        <span>ORGANIC + FIAR-TRADE</span>
+                        <h5>Coconut Milk Racerback Tank</h5>
+                        <div class="Star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>400Rs</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="girls">
+                    <img src="product/f5.jpg">
+                    <div class="des">
+                        <span>ORGANIC + FIAR-TRADE</span>
+                        <h5>Coconut Milk Racerback Tank</h5>
+                        <div class="Star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>400Rs</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                
+    </section>
 
-            </div>
-            <button class="checkout-btn">CheckOut</button>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign up for Newsletters</h4>
+            <p>Get Email updates about our latest shop and Offer </p>
 
         </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
     
-</div>
-
-/* end*/
-
-
-</section>
-<section id="pagination" class="section-p1">
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">>></a>
-</section>
-
-<section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <h4>Sign up for Newsletters</h4>
-        <p>Get Email updates about our latest shop and Offer </p>
-
-    </div>
-    <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
-    </div>
-</section>
-
-<footer class="section-p1">
-    <div class="col">
-        <img class="logo"  src="img/logo.jpg">
-        <h4>Contact</h4>
-        <p><strong>Phone</strong> +91 843 358 7057 / +91 843 358 0461</p>
-        <p><strong>Hours : </strong>10:00 - 18:00 , Mon - Sat</p>
-        <div class="Follow">
-            <h4>Follow Us</h4>
-            <div class="icon">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-pinterest-p"></i>
-                <i class="fab fa-youtube"></i>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo"  src="img/logo.jpg">
+            <h4>Contact</h4>
+            <p><strong>Phone</strong> +91 843 358 7057 / +91 843 358 0461</p>
+            <p><strong>Hours : </strong>10:00 - 18:00 , Mon - Sat</p>
+            <div class="Follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="About">
-        <h4>Abouts</h4>
-        <a href="#">About us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact us</a>
+        <div class="About">
+            <h4>Abouts</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
 
-    </div>
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign in</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="col install">
-        <h4>Install app</h4>
-        <div class="row">
-            <img src="imag/app.jpg">
-            <img src="imag/play.jpg">
         </div>
-        <p>Secured Payment Gateways</p>
-        <img src="imag/pay.png">
-    </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign in</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install app</h4>
+            <div class="row">
+                <img src="payment/app.jpg">
+                <img src="payment/play.jpg">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="payment/pay.png">
+        </div>
 
-</footer>
- <script src="script.js"></script>
+    </footer>
+    
+        <script>
+            var MainImg = document.getElementById("MainImg");
+            var smallimg = document.getElementsByClassName("small-img");
+
+            smallimg[0].onclick = function(){
+            MainImg.src = smallimg[0].src;
+            }
+            smallimg[1].onclick = function(){
+            MainImg.src = smallimg[1].src;
+            }
+            smallimg[2].onclick = function(){
+            MainImg.src = smallimg[2].src;
+            }
+            smallimg[3].onclick = function(){
+            MainImg.src = smallimg[3].src;
+            }
+        </script>
+
+
+
+
+        <script src="script.js"></script>
     </body>
 
 </html>
